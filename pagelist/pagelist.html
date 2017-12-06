@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div class="part market_order">
+			<div class="info_lis_tit ">
+				<div class="client_name">客户称呼</div>
+				<div>手机号码</div>
+				<div>预约时间</div>
+				<div>预约商铺</div>
+				<div>归属置业顾问</div>
+				<div>到访时间</div>
+			</div>
+			<ul class="market_order_list clearfix" id="marketorder">
+			</ul>
+			<div class="market_order_more"></div>
+		</div>
+		<!--预约列表模板-->
+		<script type="text/html" id="tpl-orderlist">
+			{{each list item i}}
+			<li id="{{item.intent_id}}">
+				<div class="client_name" id="{{item.customer_id}}">{{item.full_name}}</div>
+				<div>{{item.phone}}</div>
+				<div>{{item.order_time}}</div>
+				<div>{{item.order_floor}} {{item.order_shop}}</div>
+				<div>{{item.realName}}</div>
+				<div>{{item.visit_time}}</div>
+				<div class="order_charge">
+					<span class="tocounselor">分配置业顾问</span> {{if item.is_visited != 1}}<span class="tovisit" data-v="{{item.is_visited}}">确认到访</span>{{/if}}
+				</div>
+			</li>
+			{{/each}}
+		</script>
+	</body>
+
+</html>
